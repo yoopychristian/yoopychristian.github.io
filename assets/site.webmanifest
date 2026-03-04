@@ -1,23 +1,18 @@
 {
-    "name": "Yoopy Christian - Tech Lead & Software Engineer",
-    "short_name": "Yoopy Christian",
-    "description": "Experienced Tech Lead and Software Engineer specializing in Golang, PostgreSQL, and scalable system architecture.",
-    "icons": [
-        {
-            "src": "favicon.ico",
-            "sizes": "16x16 32x32 48x48",
-            "type": "image/x-icon"
-        },
-        {
-            "src": "favicon.svg",
-            "sizes": "any",
-            "type": "image/svg+xml",
-            "purpose": "any maskable"
-        }
-    ],
-    "theme_color": "#667eea",
-    "background_color": "#ffffff",
-    "display": "standalone",
-    "start_url": "/",
-    "scope": "/"
+  "name": "Yoopy Christian — Tech Lead & Software Engineer",
+  "short_name": "YC",
+  "description": "Technical leader with 5+ years building backend systems in Go.",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#050510",
+  "background_color": "#050510",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
 }

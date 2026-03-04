@@ -1,222 +1,223 @@
-// Initialize EmailJS
-(function(){
-    emailjs.init("your_public_key"); // Replace with your EmailJS public key
-})();
+// ==========================================================================
+// Yoopy Christian Portfolio — Script
+// Renders data-driven sections from content.json + handles interactions
+// ==========================================================================
 
-// Mobile Navigation Toggle
-document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
+const ARROW_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>`;
 
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
-
-        // Close menu when clicking on nav links
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            });
-        });
-    }
-});
-
-// Smooth Scrolling for Navigation Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerOffset = 70;
-            const elementPosition = target.offsetTop;
-            const offsetPosition = elementPosition - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Navbar Background on Scroll
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
-});
-
-// Simple fade-in animation for elements
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+const TYPE_LABELS = {
+  lead: 'Leading',
+  build: 'Built',
+  contract: 'Freelance',
+  personal: 'Side Project'
 };
 
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+// --------------------------------------------------------------------------
+// Data Fetching
+// --------------------------------------------------------------------------
+
+async function loadContent() {
+  try {
+    const res = await fetch('data/content.json');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.error('Failed to load content:', err);
+    return null;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Renderers
+// --------------------------------------------------------------------------
+
+function renderProjects(projects) {
+  const grid = document.getElementById('projects-grid');
+  if (!grid || !projects) return;
+
+  grid.innerHTML = projects.map(p => {
+    const hasLink = !!p.url;
+    const titleContent = hasLink
+      ? `<a href="${escapeHtml(p.url)}" target="_blank" rel="noopener">${escapeHtml(p.title)}</a>`
+      : escapeHtml(p.title);
+
+    return `
+      <article class="project-card">
+        ${p.type ? `<div class="project-card__meta">${escapeHtml(TYPE_LABELS[p.type] || p.type)}</div>` : ''}
+        <h3 class="project-card__title">${titleContent}</h3>
+        <p class="project-card__desc">${escapeHtml(p.description)}</p>
+        <div class="project-card__footer">
+          <div class="project-card__tags">
+            ${p.tech.map(t => `<span class="project-card__tag">${escapeHtml(t)}</span>`).join('')}
+          </div>
+          ${hasLink ? `<span class="project-card__arrow">${ARROW_SVG}</span>` : ''}
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+function renderExperience(experience) {
+  const list = document.getElementById('experience-list');
+  if (!list || !experience) return;
+
+  list.innerHTML = experience.map(exp => {
+    const period = exp.current ? computeDuration(exp.startDate) : exp.period;
+
+    const highlights = exp.highlights
+      ? `<div class="experience-item__highlights">
+           ${exp.highlights.map(h => `<div class="experience-item__highlight">${escapeHtml(h)}</div>`).join('')}
+         </div>`
+      : '';
+
+    return `
+      <div class="experience-item">
+        <div class="experience-item__period">${escapeHtml(period)}</div>
+        <div class="experience-item__body">
+          <div class="experience-item__role">${escapeHtml(exp.role)}</div>
+          <div class="experience-item__company">${escapeHtml(exp.company)}</div>
+          <div class="experience-item__desc">${escapeHtml(exp.description)}</div>
+          ${highlights}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderSkills(skills) {
+  const grid = document.getElementById('skills-grid');
+  if (!grid || !skills) return;
+
+  grid.innerHTML = Object.entries(skills).map(([category, items]) => `
+    <div class="skill-row">
+      <div class="skill-row__label">${escapeHtml(category)}</div>
+      <div class="skill-row__items">
+        ${items.map(item => `<span class="skill-row__item">${escapeHtml(item)}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+// --------------------------------------------------------------------------
+// Utilities
+// --------------------------------------------------------------------------
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function computeDuration(startDate) {
+  const [startYear, startMonth] = startDate.split('-').map(Number);
+  const now = new Date();
+  let months = (now.getFullYear() - startYear) * 12 + (now.getMonth() + 1 - startMonth);
+  if (months < 0) months = 0;
+
+  const years = Math.floor(months / 12);
+  const remainingMonths = months % 12;
+
+  let duration = 'Jan 2023 — Present';
+  if (years > 0 && remainingMonths > 0) {
+    duration += ` · ${years}y ${remainingMonths}m`;
+  } else if (years > 0) {
+    duration += ` · ${years}y`;
+  } else if (remainingMonths > 0) {
+    duration += ` · ${remainingMonths}m`;
+  }
+
+  return duration;
+}
+
+// --------------------------------------------------------------------------
+// Starfield
+// --------------------------------------------------------------------------
+
+function createStarfield() {
+  // Respect reduced motion preference
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const container = document.createElement('div');
+  container.className = 'starfield';
+  container.setAttribute('aria-hidden', 'true');
+
+  const starCount = 120;
+  for (let i = 0; i < starCount; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+
+    // ~20% of stars get a twinkle animation
+    if (!prefersReduced && Math.random() < 0.2) {
+      star.classList.add('star--twinkle');
+    }
+
+    const size = Math.random() * 1.5 + 0.5;
+    const opacity = Math.random() * 0.4 + 0.08;
+
+    star.style.cssText =
+      `left:${Math.random() * 100}%;` +
+      `top:${Math.random() * 100}%;` +
+      `width:${size}px;` +
+      `height:${size}px;` +
+      `opacity:${opacity};` +
+      `animation-delay:${Math.random() * 5}s;`;
+
+    container.appendChild(star);
+  }
+
+  document.body.prepend(container);
+}
+
+// --------------------------------------------------------------------------
+// Navigation
+// --------------------------------------------------------------------------
+
+function initNav() {
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  if (!toggle || !links) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    links.classList.toggle('is-open', !isOpen);
+    document.body.style.overflow = !isOpen ? 'hidden' : '';
+  });
+
+  // Close menu when a link is clicked
+  links.querySelectorAll('.nav__link').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      links.classList.remove('is-open');
+      document.body.style.overflow = '';
     });
-}, observerOptions);
+  });
 
-// Observe elements for fade-in animation
-document.addEventListener('DOMContentLoaded', function() {
-    const animatedElements = document.querySelectorAll('.section, .timeline-item, .skill-category, .project-card, .certification-item, .contact-item');
-
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-});
-
-// Form Submission Handler
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(contactForm);
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            // Basic validation
-            if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
-                alert('Please fill in all fields');
-                return;
-            }
-
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address');
-                return;
-            }
-
-            // Send email using EmailJS
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-
-            // EmailJS configuration
-            const serviceId = 'service_your_service_id'; // Replace with your EmailJS service ID
-            const templateId = 'template_your_template_id'; // Replace with your EmailJS template ID
-            const publicKey = 'your_public_key'; // Replace with your EmailJS public key
-
-            const templateParams = {
-                from_name: name,
-                from_email: email,
-                to_name: 'Yoopy Christian',
-                message: message,
-                reply_to: email
-            };
-
-            // Send email using EmailJS
-            emailjs.send(serviceId, templateId, templateParams, publicKey)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    alert('Thank you for your message! I will get back to you soon.');
-                    contactForm.reset();
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    alert('Sorry, there was an error sending your message. Please try again or contact me directly.');
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                });
-        });
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && links.classList.contains('is-open')) {
+      toggle.setAttribute('aria-expanded', 'false');
+      links.classList.remove('is-open');
+      document.body.style.overflow = '';
+      toggle.focus();
     }
-});
+  });
+}
 
-// Scroll to top button functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Show/hide scroll-to-top button
-    const scrollToTopBtn = document.querySelector('.scroll-to-top');
-    if (scrollToTopBtn) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 500) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        });
+// --------------------------------------------------------------------------
+// Init
+// --------------------------------------------------------------------------
 
-        // Scroll to top functionality
-        scrollToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-});
+async function init() {
+  createStarfield();
+  initNav();
 
-// Dynamic Experience Duration Calculator
-document.addEventListener('DOMContentLoaded', function() {
-    function calculateExperienceDuration() {
-        const startDate = new Date('2023-01-01');
-        const currentDate = new Date();
+  const data = await loadContent();
+  if (!data) return;
 
-        let years = currentDate.getFullYear() - startDate.getFullYear();
-        let months = currentDate.getMonth() - startDate.getMonth();
+  renderProjects(data.projects);
+  renderExperience(data.experience);
+  renderSkills(data.skills);
+}
 
-        // Adjust if current month is before January
-        if (months < 0) {
-            years--;
-            months += 12;
-        }
-
-        // Adjust if current date is before the 1st of the month
-        if (currentDate.getDate() < startDate.getDate()) {
-            months--;
-            if (months < 0) {
-                years--;
-                months += 12;
-            }
-        }
-
-        // Format the duration string
-        let durationText = '';
-        if (years > 0) {
-            durationText += years + ' year' + (years > 1 ? 's' : '');
-            if (months > 0) {
-                durationText += ' ' + months + ' month' + (months > 1 ? 's' : '');
-            }
-        } else if (months > 0) {
-            durationText += months + ' month' + (months > 1 ? 's' : '');
-        } else {
-            durationText = 'Less than 1 month';
-        }
-
-        // Update the experience duration element
-        const durationElement = document.getElementById('current-experience-duration');
-        if (durationElement) {
-            durationElement.innerHTML = `<i class="fas fa-calendar-alt"></i>Jan 2023 - Present (${durationText})`;
-        }
-    }
-
-    // Calculate duration immediately
-    calculateExperienceDuration();
-
-    // Update every month (approximately every 30 days)
-    setInterval(calculateExperienceDuration, 30 * 24 * 60 * 60 * 1000);
-});
+init();

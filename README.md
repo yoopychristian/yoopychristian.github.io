@@ -1,190 +1,140 @@
-# Yoopy Christian - Portfolio Website
+# yoopychristian.github.io
 
-A modern, responsive portfolio website showcasing the professional experience and skills of Yoopy Christian, Tech Lead & Software Engineer.
+Personal portfolio — Tech Lead & Software Engineer.
 
-## 🚀 Features
+## Stack
 
-- **Modern Design**: Clean, professional layout with gradient accents and smooth animations
-- **Responsive**: Mobile-first design that works perfectly on all devices
-- **Interactive**: Smooth scrolling navigation, animated skill tags, and hover effects
-- **Comprehensive CV**: All sections from your resume beautifully presented
-- **Easy to Update**: Well-structured code for easy content modifications
-- **GitHub Pages Ready**: Optimized for deployment on GitHub Pages
+Vanilla HTML + CSS + JS. No build step. Deploys directly to GitHub Pages.
 
-## 📁 Project Structure
+## File Structure
 
 ```
-yoopychristian/
-├── index.html              # Main HTML file
-├── style.css               # CSS styling and responsive design
-├── script.js               # JavaScript for interactions and animations
-├── Resume-Yoopy-Christian.pdf  # Your CV PDF file
-├── resume-content.txt      # Extracted text from PDF (for reference)
-├── assets/                 # Folder for images and other assets
-└── README.md              # This file
+├── index.html                   # Page structure (static hero + containers)
+├── style.css                    # Design system + all styles
+├── script.js                    # Renders data sections + nav interactions
+├── data/
+│   └── content.json             # All editable content (projects, experience, skills)
+├── assets/
+│   ├── favicon.svg              # YC logo favicon
+│   └── site.webmanifest         # PWA manifest
+├── Resume-Yoopy-Christian.pdf   # Downloadable resume
+└── README.md
 ```
 
-## 🎨 Design Features
+## Updating Content
 
-- **Navigation Bar**: Fixed header with smooth scrolling to sections
-- **Hero Section**: Eye-catching introduction with call-to-action buttons
-- **About Section**: Personal summary with animated statistics
-- **Experience Timeline**: Visual timeline of career progression
-- **Skills Grid**: Categorized technical skills with hover effects
-- **Projects Showcase**: Highlighted key projects and achievements
-- **Contact Form**: Functional contact form with validation
-- **Mobile Menu**: Responsive hamburger menu for mobile devices
+All project, experience, and skills data lives in **`data/content.json`**. Edit that file to update the site — no HTML changes needed for content updates.
 
-## 🚀 Deploying to GitHub Pages
+### Adding a project
 
-### Method 1: Using GitHub Repository (Recommended)
+Add an object to the `projects` array:
 
-1. **Create a GitHub Repository**
-   ```bash
-   # If you don't have one already, create a new repository on GitHub
-   # Repository name: yoopychristian (or your preferred name)
-   ```
-
-2. **Initialize Git Repository** (if not already done)
-   ```bash
-   cd /home/yoopy/work/yoopychristian
-   git init
-   git add .
-   git commit -m "Initial commit - Portfolio website"
-   ```
-
-3. **Add Remote Repository**
-   ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/yoopychristian.git
-   git push -u origin main
-   ```
-
-4. **Enable GitHub Pages**
-   - Go to your GitHub repository
-   - Click on "Settings" tab
-   - Scroll down to "Pages" section
-   - Under "Source", select "Deploy from a branch"
-   - Select "main" branch and "/root" folder
-   - Click "Save"
-
-5. **Access Your Website**
-   - Your website will be available at: `https://YOUR_USERNAME.github.io/yoopychristian/`
-   - GitHub Pages typically takes 1-2 minutes to deploy
-
-### Method 2: Using Existing Repository
-
-If you already have a GitHub repository:
-
-1. **Clone or navigate to your repository**
-   ```bash
-   cd /home/yoopy/work/yoopychristian
-   git remote -v  # Check current remote
-   ```
-
-2. **Add all files to git**
-   ```bash
-   git add .
-   git status  # Check what will be committed
-   ```
-
-3. **Commit and push**
-   ```bash
-   git commit -m "Add portfolio website"
-   git push origin main
-   ```
-
-4. **Enable GitHub Pages** (same as Method 1, steps 4-5)
-
-## 📱 Responsive Design
-
-The website is fully responsive and optimized for:
-- **Desktop** (1200px and above)
-- **Tablet** (768px - 1199px)
-- **Mobile** (below 768px)
-
-Key responsive features:
-- Mobile-first CSS approach
-- Flexible grid layouts
-- Responsive navigation menu
-- Optimized typography and spacing
-
-## 🎯 Customization
-
-### Updating Personal Information
-Edit the `index.html` file to update:
-- Personal details in the hero section
-- Contact information
-- Social media links
-
-### Adding New Sections
-The website structure makes it easy to add new sections:
-1. Add HTML section in `index.html`
-2. Add corresponding styles in `style.css`
-3. Add navigation link if needed
-
-### Changing Colors
-Main colors are defined in CSS variables and can be easily changed:
-- Primary: `#667eea` (purple-blue)
-- Secondary: `#764ba2` (darker purple)
-- Text: `#1f2937` (dark gray)
-
-### Adding Images
-Place images in the `assets/` folder and reference them in HTML:
-```html
-<img src="assets/your-image.jpg" alt="Description">
+```json
+{
+  "title": "Project Name",
+  "description": "One to two sentences. Impact-focused.",
+  "tech": ["Go", "PostgreSQL"],
+  "url": "https://example.com",
+  "type": "lead"
+}
 ```
 
-## 🔧 Technical Details
+**`type`** values: `lead` (leading), `build` (built), `contract` (freelance), `personal` (side project). Determines the label shown above the project title.
 
-### Technologies Used
-- **HTML5**: Semantic markup with accessibility features
-- **CSS3**: Modern styling with Flexbox and Grid
-- **JavaScript**: Vanilla JS for interactions and animations
-- **Google Fonts**: Inter font family for clean typography
-- **Font Awesome**: Icons for social links and UI elements
+**`url`** is optional. If provided, the card becomes a clickable link with an arrow indicator.
 
-### Browser Support
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+### Adding experience
 
-### Performance Optimizations
-- Optimized images and assets
-- Efficient CSS and JavaScript
-- Minimal external dependencies
-- Fast loading times
+Add an object to the `experience` array:
 
-## 📞 Contact Integration
+```json
+{
+  "role": "Job Title",
+  "company": "Company Name",
+  "period": "Jan 2023 — Dec 2024",
+  "description": "Brief description of the role.",
+  "highlights": ["Key achievement 1", "Key achievement 2"]
+}
+```
 
-The contact form includes:
-- Client-side validation
-- Email format checking
-- User feedback
-- Ready for backend integration
+For the current role, add `"current": true` and `"startDate": "2023-01"` — the duration will be calculated automatically.
 
-To add backend functionality, you can integrate with services like:
-- Netlify Forms
-- Formspree
-- Custom backend API
+### Updating skills
 
-## 🔄 Future Enhancements
+Edit the `skills` object. Keys are category names, values are arrays of skill strings:
 
-Potential improvements you can add:
-- Dark mode toggle
-- Blog section
-- Project filtering
-- Testimonials section
-- Downloadable resume tracking
-- Contact form backend integration
-- Progressive Web App features
+```json
+{
+  "Languages": ["Go", "JavaScript", "Python"],
+  "Backend": ["PostgreSQL", "MySQL"]
+}
+```
 
-## 📄 License
+### Updating hero / contact info
 
-This project is personal portfolio content. Feel free to use this structure as inspiration for your own portfolio.
+The hero section and contact info are **static HTML** in `index.html` (for SEO). Edit them directly in the HTML file. The `meta` object in `content.json` is available for reference but doesn't auto-render into the hero.
 
----
+## Deploy
 
-**Note**: Your PDF CV is included in the project and the download button links directly to it. Make sure to keep the `Resume-Yoopy-Christian.pdf` file in the root directory for the download link to work properly.
+Push to `main` branch. GitHub Pages serves from root automatically.
 
-For any issues or questions about deployment, check the [GitHub Pages documentation](https://docs.github.com/en/pages) or feel free to ask!
+```bash
+git add .
+git commit -m "Update portfolio"
+git push origin main
+```
+
+Settings: Repository → Settings → Pages → Source: "Deploy from branch" → Branch: `main`, folder: `/ (root)`.
+
+## Design Rationale
+
+### Direction
+
+"Product UI" card/grid layout inspired by Linear, Vercel, and Raycast. Chosen over editorial/docs style because:
+- Card containers create clear scan paths for fast parsing (recruiters spend ~30s)
+- Structured layout signals "engineer who builds products"
+- Cards map 1:1 to JSON data objects, making the content system clean
+
+### Typography
+
+- **Inter** (400/500/600/700) — the workhorse sans-serif of modern product design. Excellent legibility at small sizes, strong character at large sizes.
+- **JetBrains Mono** — for code-like accents: tech tags, dates, meta labels. Reinforces the technical identity.
+- Scale: 48/17/15/14/13/11px. Tight but readable. Headings use -0.03em tracking for density. Body at 15px hits the sweet spot between information density and readability.
+
+### Spacing
+
+4px base unit. Consistent multiples (8/12/16/24/32/48/64/80/96/128). Generous section padding (80px) creates breathing room. Card internal padding (24px) is tight enough to feel product-like, loose enough to read.
+
+### Color
+
+Dark-only. Near-black background (#09090b) with subtle zinc-based surface layers (#111113, #1a1a1f). Text hierarchy through three zinc tones (#fafafa, #a1a1aa, #71717a) — all passing WCAG AA contrast. Single accent (#3b82f6 blue) used only for interactive elements and tech tags. Green dot (#22c55e) for "currently active" status badge.
+
+### Components
+
+- **Nav**: 56px fixed, backdrop-blur, minimal links. Monospace "YC" badge as logo.
+- **Hero**: Name + status badge + bio + icon links. No image/avatar — the writing is the identity.
+- **Project cards**: 14px radius, 1px borders, stretched-link pattern (whole card clickable). Hover = border brightens + 1px lift. Tech tags as monospace pills with accent background.
+- **Experience**: Grid layout with monospace date column. Clean rows, no cards — editorial feel within the product structure.
+- **Skills**: Category-label + tag-pill rows. Hoverable tags with border transition.
+- **Contact**: Simple text links with inline SVG icons. No form (static site = use email directly).
+
+### Performance
+
+- Zero external dependencies besides Google Fonts (Inter + JetBrains Mono)
+- No icon library — all icons are inline SVGs (~200 bytes each)
+- No images — entirely CSS/text-based design
+- JS is ~4KB, runs as ES module (auto-deferred)
+- CSS is ~8KB (single file, no preprocessor needed)
+- Total page weight under 50KB (excluding fonts and PDF resume)
+
+### Accessibility
+
+- Semantic HTML: nav, main, section, article, footer, h1→h3
+- Skip-to-content link
+- ARIA labels on all icon-only links
+- `aria-expanded` on mobile menu toggle
+- Escape key closes mobile menu
+- `focus-visible` outlines on all interactive elements
+- `prefers-reduced-motion` disables all animations
+- All text passes WCAG AA contrast on dark background
+- Print stylesheet hides nav/decorative elements

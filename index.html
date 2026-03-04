@@ -1,784 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yoopy Christian - Tech Lead & Software Engineer</title>
-    <meta name="description" content="Experienced Tech Lead and Software Engineer specializing in Golang, PostgreSQL, and scalable system architecture. Leading development teams at Blue Bird Group.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.ico">
-    <link rel="manifest" href="assets/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yoopy Christian — Tech Lead & Software Engineer</title>
+  <meta name="description" content="Technical leader with 5+ years building backend systems in Go. Leading engineering teams at Blue Bird Group, Jakarta.">
+  <meta name="author" content="Yoopy Christian">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Yoopy Christian — Tech Lead & Software Engineer">
+  <meta property="og:description" content="Technical leader with 5+ years building backend systems in Go. Leading engineering teams at Blue Bird Group.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Yoopy Christian — Tech Lead & Software Engineer">
+  <meta name="twitter:description" content="Technical leader with 5+ years building backend systems in Go. Leading engineering teams at Blue Bird Group.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="manifest" href="assets/site.webmanifest">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home" class="logo-link">
-                    <div class="logo-container">
-                        <div class="logo-icon">
-                            <span class="logo-yc">YC</span>
-                        </div>
-                        <span class="logo-text">Yoopy Christian</span>
-                    </div>
-                </a>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#portfolio" class="nav-link">Portfolio</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-        </div>
-    </nav>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to content</a>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="title-line">Yoopy Christian</span>
-                        <span class="title-subtitle">Tech Lead & Software Engineer</span>
-                    </h1>
-                    <p class="hero-description">
-                        Experienced technical leader with expertise in modern backend development.
-                        Currently leading development teams at Blue Bird Group, specializing in
-                        <span class="highlight">Golang</span>, <span class="highlight">PostgreSQL</span>, and scalable system architecture.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="#about" class="btn btn-primary">
-                            <span>View My Work</span>
-                            <i class="fas fa-arrow-down"></i>
-                        </a>
-                        <a href="Resume-Yoopy-Christian.pdf" class="btn btn-secondary" download>
-                            <i class="fas fa-download"></i>
-                            <span>Download CV</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="hero-avatar">
-                        <div class="avatar-circle">
-                            <i class="fas fa-code"></i>
-                        </div>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Years</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Certs</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Teams</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo" aria-label="Home">
+        <span class="nav__logo-mark">YC</span>
+      </a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav__links" id="nav-links">
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#experience" class="nav__link">Experience</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#contact" class="nav__link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero__badge">Tech Lead at Blue Bird Group</div>
+        <h1 class="hero__name">Yoopy Christian</h1>
+        <p class="hero__bio">
+          Technical leader with 5+ years building backend systems in Go.
+          Currently leading 3 engineering squads at Blue Bird Group, shipping
+          logistics, workforce management, and fleet management products at scale.
+        </p>
+        <div class="hero__links">
+          <a href="mailto:yoopywork@gmail.com" class="hero__icon-link" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/yoopychristian" target="_blank" rel="noopener" class="hero__icon-link" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://github.com/yoopychristian" target="_blank" rel="noopener" class="hero__icon-link" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+          <span class="hero__divider"></span>
+          <a href="Resume-Yoopy-Christian.pdf" download class="hero__cta">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Resume
+          </a>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Get to know more about my background and expertise</p>
-            </div>
-            <div class="about-content">
-                <div class="about-story">
-                    <div class="story-card">
-                        <div class="story-header">
-                            <div class="story-icon">
-                                <i class="fas fa-user-graduate"></i>
-                            </div>
-                            <h3>My Journey</h3>
-                        </div>
-                        <p>Graduated with a Bachelor of Engineering in Geological/Geophysical Engineering from Institut Teknologi Sumatera in 2019, I transitioned from geophysics to software engineering, bringing analytical thinking and problem-solving skills from earth sciences to technology. This unique background enables me to approach technical challenges with fresh perspectives and innovative solutions.</p>
-                    </div>
-                    <div class="story-card">
-                        <div class="story-header">
-                            <div class="story-icon">
-                                <i class="fas fa-code-branch"></i>
-                            </div>
-                            <h3>Current Role</h3>
-                        </div>
-                        <p>As a servant leader, I empower development teams by fostering collaboration and creating environments where developers can thrive. I lead technical decision-making processes, ensuring alignment with industry best practices while maintaining focus on scalable and secure solutions.</p>
-                    </div>
-                    <div class="story-card">
-                        <div class="story-header">
-                            <div class="story-icon">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <h3>Unique Perspective</h3>
-                        </div>
-                        <p>My expertise spans API design, architecture patterns, and application security. This technical foundation, combined with my geophysical engineering background, enables me to approach complex challenges with analytical rigor and innovative thinking, resulting in robust and scalable solutions.</p>
-                    </div>
-                    <div class="story-card">
-                        <div class="story-header">
-                            <div class="story-icon">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                            <h3>Growth Mindset</h3>
-                        </div>
-                        <p>I'm passionate about continuous learning, staying current with technological advancements and industry trends. I believe in the power of collaboration and innovation to drive both personal growth and meaningful impact in the technology landscape.</p>
-                    </div>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <div class="stat-content">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <div class="stat-content">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Certifications</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-users-cog"></i>
-                        </div>
-                        <div class="stat-content">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Teams Leading</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section__title">Projects</h2>
+        <div class="projects-grid" id="projects-grid">
+          <noscript>
+            <p class="noscript-msg">Enable JavaScript to view projects, or download my resume for details.</p>
+          </noscript>
         </div>
+      </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Experience</h2>
-                <p class="section-subtitle">My professional journey and key achievements</p>
-            </div>
-            <div class="experience-grid">
-                <div class="experience-card current">
-                    <div class="experience-header">
-                        <div class="experience-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <div class="experience-info">
-                            <h3>Technical Lead</h3>
-                            <h4>Blue Bird Group</h4>
-                            <span class="experience-period" id="current-experience-duration">
-                                <i class="fas fa-calendar-alt"></i>
-                                Jan 2023 - Present
-                            </span>
-                        </div>
-                    </div>
-                    <div class="experience-content">
-                        <ul class="experience-list">
-                            <li>
-                                <span class="list-icon"><i class="fas fa-users"></i></span>
-                                Managing 2 squads: Bluebird Logistics Corporate & E-timesheet Corporate Solution
-                            </li>
-                            <li>
-                                <span class="list-icon"><i class="fas fa-code-branch"></i></span>
-                                Coordinating and leading team of developers, including task delegation and technical guidance
-                            </li>
-                            <li>
-                                <span class="list-icon"><i class="fas fa-cog"></i></span>
-                                Making crucial technical decisions affecting architecture, technology, and tools
-                            </li>
-                            <li>
-                                <span class="list-icon"><i class="fas fa-code"></i></span>
-                                Writing high-quality code and conducting peer code reviews
-                            </li>
-                            <li>
-                                <span class="list-icon"><i class="fas fa-chart-line"></i></span>
-                                Participating in project planning and timeline estimation
-                            </li>
-                            <li>
-                                <span class="list-icon"><i class="fas fa-shield-alt"></i></span>
-                                Ensuring product quality and collaborating with QA teams
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-icon">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <div class="experience-info">
-                            <h3>Back End Engineer</h3>
-                            <h4>Sagara Technology</h4>
-                            <span class="experience-period">
-                                <i class="fas fa-calendar-alt"></i>
-                                Jul 2021 - Dec 2022 (1 year 6 months)
-                            </span>
-                        </div>
-                    </div>
-                    <div class="experience-content">
-                        <div class="experience-projects">
-                            <div class="project-item">
-                                <h5>Bank BRI - Beliin-BRI Application</h5>
-                                <ul class="experience-list">
-                                    <li><span class="list-icon"><i class="fas fa-code"></i></span> Developed MVP application for UMKM business process</li>
-                                    <li><span class="list-icon"><i class="fas fa-cogs"></i></span> Built API with Golang GIN framework, middleware, CORS, and PostgreSQL</li>
-                                </ul>
-                            </div>
-                            <div class="project-item">
-                                <h5>OVO - BISNAP API Integration</h5>
-                                <ul class="experience-list">
-                                    <li><span class="list-icon"><i class="fas fa-plug"></i></span> Integrated Bank Indonesia's new BISNAP regulation</li>
-                                    <li><span class="list-icon"><i class="fas fa-code"></i></span> Created Open API with Golang monolith, middleware, CORS, and MySQL</li>
-                                    <li><span class="list-icon"><i class="fas fa-sitemap"></i></span> Designed High-Level and Low-Level architecture</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div class="experience-info">
-                            <h3>Back End Developer</h3>
-                            <h4>Lumoshive</h4>
-                            <span class="experience-period">
-                                <i class="fas fa-calendar-alt"></i>
-                                May 2021 - Oct 2021 (6 months)
-                            </span>
-                        </div>
-                    </div>
-                    <div class="experience-content">
-                        <ul class="experience-list">
-                            <li><span class="list-icon"><i class="fas fa-code"></i></span> Developed backend using Golang</li>
-                            <li><span class="list-icon"><i class="fas fa-cogs"></i></span> Built API with Golang GIN framework, middleware, CORS, and PostgreSQL</li>
-                            <li><span class="list-icon"><i class="fas fa-gamepad"></i></span> Created Game Platform Internal Project</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <div class="experience-info">
-                            <h3>Back End Developer</h3>
-                            <h4>PT FUSI SOLUSI TRANSFORMASI</h4>
-                            <span class="experience-period">
-                                <i class="fas fa-calendar-alt"></i>
-                                Sep 2020 - Apr 2021 (8 months)
-                            </span>
-                        </div>
-                    </div>
-                    <div class="experience-content">
-                        <ul class="experience-list">
-                            <li><span class="list-icon"><i class="fas fa-code"></i></span> Developed backend using Golang</li>
-                            <li><span class="list-icon"><i class="fas fa-cogs"></i></span> Built API with Golang Echo framework, middleware, CORS, and PostgreSQL</li>
-                            <li><span class="list-icon"><i class="fas fa-chart-bar"></i></span> Implemented ELK stack (Elasticsearch, Logstash, Kibana) for log visualization</li>
-                            <li><span class="list-icon"><i class="fas fa-credit-card"></i></span> Created payment gateway for SmartStudent apps</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="experience-info">
-                            <h3>Trainee</h3>
-                            <h4>Enigma Camp</h4>
-                            <span class="experience-period">
-                                <i class="fas fa-calendar-alt"></i>
-                                May 2020 - Aug 2020 (4 months)
-                            </span>
-                        </div>
-                    </div>
-                    <div class="experience-content">
-                        <p>Learned Golang, MySQL, JavaScript, and ReactJS</p>
-                    </div>
-                </div>
-            </div>
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section__title">Experience</h2>
+        <div class="experience-list" id="experience-list">
+          <noscript>
+            <p class="noscript-msg">Enable JavaScript to view experience details.</p>
+          </noscript>
         </div>
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Skills & Expertise</h2>
-                <p class="section-subtitle">Technologies and tools I work with</p>
-            </div>
-            <div class="skills-showcase">
-                <div class="skills-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-users-cog"></i>
-                        </div>
-                        <h3>Leadership & Architecture</h3>
-                    </div>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-crown"></i></span>
-                            <span class="skill-name">Technical Lead</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-sitemap"></i></span>
-                            <span class="skill-name">Solution Architecture</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-users"></i></span>
-                            <span class="skill-name">Team Management</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-tasks"></i></span>
-                            <span class="skill-name">Project Planning</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-code-branch"></i></span>
-                            <span class="skill-name">Code Review</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-shield-alt"></i></span>
-                            <span class="skill-name">Quality Assurance</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Programming Languages</h3>
-                    </div>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-code"></i></span>
-                            <span class="skill-name">Golang</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fab fa-js-square"></i></span>
-                            <span class="skill-name">JavaScript</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fab fa-python"></i></span>
-                            <span class="skill-name">Python</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <h3>Backend Development</h3>
-                    </div>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-database"></i></span>
-                            <span class="skill-name">PostgreSQL</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-database"></i></span>
-                            <span class="skill-name">MySQL</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-plug"></i></span>
-                            <span class="skill-name">API Development</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-vial"></i></span>
-                            <span class="skill-name">Unit Testing</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-cubes"></i></span>
-                            <span class="skill-name">Microservices</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <h3>Cloud & Infrastructure</h3>
-                    </div>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fab fa-aws"></i></span>
-                            <span class="skill-name">Amazon Web Services</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fab fa-google"></i></span>
-                            <span class="skill-name">Google Cloud Platform</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-cloud"></i></span>
-                            <span class="skill-name">Huawei Cloud</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-route"></i></span>
-                            <span class="skill-name">API Gateway</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-project-diagram"></i></span>
-                            <span class="skill-name">KrakenD</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-project-diagram"></i></span>
-                            <span class="skill-name">Kong API Gateway</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-exchange-alt"></i></span>
-                            <span class="skill-name">RabbitMQ</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-chart-line"></i></span>
-                            <span class="skill-name">New Relic</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3>Tools & DevOps</h3>
-                    </div>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fab fa-docker"></i></span>
-                            <span class="skill-name">Docker</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fab fa-git-alt"></i></span>
-                            <span class="skill-name">Git</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-search"></i></span>
-                            <span class="skill-name">ELK Stack</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fab fa-linux"></i></span>
-                            <span class="skill-name">Linux</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-infinity"></i></span>
-                            <span class="skill-name">CI/CD</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-dharmachakra"></i></span>
-                            <span class="skill-name">Kubernetes</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fab fa-jenkins"></i></span>
-                            <span class="skill-name">Jenkins</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-eye"></i></span>
-                            <span class="skill-name">Monitoring</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon"><i class="fas fa-chart-area"></i></span>
-                            <span class="skill-name">Grafana</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section__title">Skills</h2>
+        <div class="skills-grid" id="skills-grid">
+          <noscript>
+            <p class="noscript-msg">Enable JavaScript to view skills.</p>
+          </noscript>
         </div>
+      </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Key Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Bluebird Logistics Corporate</h3>
-                        <span class="project-tech">Golang, PostgreSQL, AWS</span>
-                    </div>
-                    <p>Leading development of corporate logistics solution for Blue Bird Group, managing team of developers and ensuring high-quality delivery.</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>E-timesheet Corporate Solution</h3>
-                        <span class="project-tech">Golang, API Gateway, Microservices</span>
-                    </div>
-                    <p>Developing comprehensive timesheet management system with modern API architecture and scalable microservices design.</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>BISNAP API Integration (OVO)</h3>
-                        <span class="project-tech">Golang, MySQL, OpenAPI</span>
-                    </div>
-                    <p>Integrated Bank Indonesia's BISNAP regulation compliance into OVO's payment system with robust API design and documentation.</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Beliin-BRI Application</h3>
-                        <span class="project-tech">Golang, PostgreSQL, REST API</span>
-                    </div>
-                    <p>Developed MVP application for UMKM business processes at Bank BRI, focusing on scalability and performance.</p>
-                </div>
-            </div>
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section__title">Get in touch</h2>
+        <p class="contact__text">
+          Open to discussing technical leadership roles, architecture consulting,
+          or interesting Go projects.
+        </p>
+        <div class="contact__links">
+          <a href="mailto:yoopywork@gmail.com" class="contact__link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+            yoopywork@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/yoopychristian" target="_blank" rel="noopener" class="contact__link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/in/yoopychristian
+          </a>
+          <a href="https://wa.me/628177644600" target="_blank" rel="noopener" class="contact__link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +62 817 7644 4600
+          </a>
+          <span class="contact__location">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Jakarta, Indonesia
+          </span>
         </div>
+      </div>
     </section>
+  </main>
 
-    <!-- Portfolio Websites Section -->
-    <section id="portfolio" class="section">
-        <div class="container">
-            <h2 class="section-title">Portfolio Websites</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Blue Bird Logistics</h3>
-                        <span class="project-tech">Golang, PostgreSQL, AWS</span>
-                    </div>
-                    <p>Corporate logistics solution for Blue Bird Group transportation services.</p>
-                    <div class="project-linkss">
-                        <a href="https://logistic.bluebird.id/" target="_blank" class="btn btn-primary">
-                            <i class="fas fa-external-link-alt"></i>
-                            View Website
-                        </a>
-                    </div>
-                </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Yoopy Christian</p>
+    </div>
+  </footer>
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Blue Bird E-Timesheet</h3>
-                        <span class="project-tech">Golang, API Gateway, Microservices</span>
-                    </div>
-                    <p>Comprehensive timesheet management system for corporate employees.</p>
-                    <div class="project-links">
-                        <a href="https://etimesheet.bluebirdgroup.com/" target="_blank" class="btn btn-small btn-primary">
-                            <i class="fas fa-external-link-alt"></i>
-                            View Website
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Telkomsel</h3>
-                        <span class="project-tech">Backend Development</span>
-                    </div>
-                    <p>Indonesia's largest telecommunications company website and mobile app development.</p>
-                    <div class="project-links">
-                        <a href="https://www.telkomsel.com/" target="_blank" class="btn btn-small btn-primary">
-                            <i class="fas fa-external-link-alt"></i>
-                            View Website
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Dagangan</h3>
-                        <span class="project-tech">E-commerce Platform</span>
-                    </div>
-                    <p>Freelance project for Indonesian social commerce platform connecting suppliers with retailers.</p>
-                    <div class="project-links">
-                        <a href="https://dagangan.com/" target="_blank" class="btn btn-small btn-primary">
-                            <i class="fas fa-external-link-alt"></i>
-                            View Website
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Alterstay</h3>
-                        <span class="project-tech">Hospitality Platform</span>
-                    </div>
-                    <p>Freelance project for innovative hospitality and accommodation booking platform.</p>
-                    <div class="project-links">
-                        <a href="https://alterstay.co/" target="_blank" class="btn btn-small btn-primary">
-                            <i class="fas fa-external-link-alt"></i>
-                            View Website
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>DBS Bank Indonesia</h3>
-                        <span class="project-tech">Banking Website</span>
-                    </div>
-                    <p>Freelance project for one of the largest banks in Indonesia's digital presence.</p>
-                    <div class="project-links">
-                        <a href="https://www.dbs.id/" target="_blank" class="btn btn-small btn-primary">
-                            <i class="fas fa-external-link-alt"></i>
-                            View Website
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>AI Hukum MVP</h3>
-                        <span class="project-tech">React, Node.js, AI Integration</span>
-                    </div>
-                    <p>Personal project - Legal AI platform for document analysis and legal research.</p>
-                    <div class="project-links">
-                        <a href="https://ai-hukum-mvp-fe.onrender.com/" target="_blank" class="btn btn-small btn-primary">
-                            <i class="fas fa-external-link-alt"></i>
-                            View Website
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>HZS Law</h3>
-                        <span class="project-tech">React, Node.js, Legal Services</span>
-                    </div>
-                    <p>Personal project - Law firm website with modern design and client portal.</p>
-                    <div class="project-links">
-                        <a href="https://hzslaw.onrender.com/" target="_blank" class="btn btn-small btn-primary">
-                            <i class="fas fa-external-link-alt"></i>
-                            View Website
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="section">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            <div class="certifications-grid">
-                <div class="certification-item">
-                    <h4>EF SET Certificate</h4>
-                    <p>EF English First</p>
-                </div>
-                <div class="certification-item">
-                    <h4>Statistical Processing Computer Operator</h4>
-                    <p>Badan Nasional Sertifikasi Profesi</p>
-                </div>
-                <div class="certification-item">
-                    <h4>Python Programming Certifications</h4>
-                    <p>Dicoding Academy, HackerRank, Udemy</p>
-                </div>
-                <div class="certification-item">
-                    <h4>Enterprise Architecture Foundations</h4>
-                    <p>LinkedIn Learning</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:yoopywork@gmail.com">yoopywork@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div>
-                            <h4>WhatsApp</h4>
-                            <a href="https://wa.me/628177644600" target="_blank">+62 817 7644 4600</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Jakarta, Indonesia</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <div>
-                            <h4>LinkedIn</h4>
-                            <a href="https://www.linkedin.com/in/yoopychristian" target="_blank">linkedin.com/in/yoopychristian</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Yoopy Christian. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- EmailJS Script -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="script.js"></script>
-
-    <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" aria-label="Scroll to top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+  <script src="script.js" type="module"></script>
 </body>
 </html>

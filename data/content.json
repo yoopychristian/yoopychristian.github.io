@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "name": "Yoopy Christian",
+    "title": "Tech Lead & Software Engineer",
+    "bio": "Technical leader with 5+ years building backend systems in Go. Currently leading 3 engineering squads at Blue Bird Group, shipping logistics, workforce management, and fleet management products at scale.",
+    "location": "Jakarta, Indonesia",
+    "timezone": "GMT+7",
+    "email": "yoopywork@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/yoopychristian",
+    "github": "https://github.com/yoopychristian",
+    "whatsapp": "https://wa.me/628177644600",
+    "resume": "Resume-Yoopy-Christian.pdf"
+  },
+  "projects": [
+    {
+      "title": "Bluebird Logistics Corporate",
+      "description": "Enterprise logistics platform for Blue Bird Group's B2B transportation operations. Led architecture decisions and managed a full development squad.",
+      "tech": ["Go", "PostgreSQL", "AWS"],
+      "url": "https://logistic.bluebird.id/",
+      "type": "lead"
+    },
+    {
+      "title": "E-Timesheet Corporate",
+      "description": "Workforce time management system for Blue Bird Group employees. Designed API gateway architecture with microservices.",
+      "tech": ["Go", "API Gateway", "Microservices"],
+      "url": "https://etimesheet.bluebirdgroup.com/",
+      "type": "lead"
+    },
+    {
+      "title": "Total Fleet Management Corporate",
+      "description": "Fleet management platform for Blue Bird Group's corporate vehicle operations. Leading squad on architecture and delivery.",
+      "tech": ["Go", "PostgreSQL", "Microservices"],
+      "type": "lead"
+    },
+    {
+      "title": "BISNAP API Integration",
+      "description": "Integrated Bank Indonesia's BISNAP payment regulation into OVO's infrastructure. Designed HLD/LLD and built the Open API layer.",
+      "tech": ["Go", "MySQL", "OpenAPI"],
+      "type": "build"
+    },
+    {
+      "title": "Beliin-BRI Application",
+      "description": "MVP marketplace enabling UMKM small businesses to digitize operations through Bank BRI.",
+      "tech": ["Go", "PostgreSQL", "REST API"],
+      "type": "build"
+    },
+    {
+      "title": "AI Hukum",
+      "description": "Legal AI platform for document analysis and research. Personal MVP project.",
+      "tech": ["React", "Node.js", "AI"],
+      "url": "https://ai-hukum-mvp-fe.onrender.com/",
+      "type": "personal"
+    },
+    {
+      "title": "HZS Law",
+      "description": "Law firm website with modern design and client portal.",
+      "tech": ["React", "Node.js"],
+      "url": "https://hzslaw.onrender.com/",
+      "type": "personal"
+    },
+    {
+      "title": "Telkomsel",
+      "description": "Backend systems for Indonesia's largest telecommunications provider.",
+      "tech": ["Go", "Backend"],
+      "url": "https://www.telkomsel.com/",
+      "type": "contract"
+    },
+    {
+      "title": "DBS Bank Indonesia",
+      "description": "Backend for digital banking platform, one of Indonesia's largest international banks.",
+      "tech": ["Go", "Banking"],
+      "url": "https://www.dbs.id/",
+      "type": "contract"
+    },
+    {
+      "title": "Dagangan",
+      "description": "Social commerce platform connecting suppliers with retailers across Indonesia.",
+      "tech": ["Go", "E-commerce"],
+      "url": "https://dagangan.com/",
+      "type": "contract"
+    },
+    {
+      "title": "Alterstay",
+      "description": "Hospitality and accommodation booking platform.",
+      "tech": ["Go", "Backend"],
+      "url": "https://alterstay.co/",
+      "type": "contract"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Technical Lead",
+      "company": "Blue Bird Group",
+      "period": "Jan 2023 — Present",
+      "startDate": "2023-01",
+      "current": true,
+      "description": "Leading 3 engineering squads (Logistics Corporate, E-Timesheet & Total Fleet Management). Owning architecture decisions, code quality, and delivery across all products.",
+      "highlights": [
+        "Manage 3 squads with cross-functional collaboration",
+        "Drive architecture, tooling, and engineering standards",
+        "Conduct code reviews and ensure production quality"
+      ]
+    },
+    {
+      "role": "Back End Engineer",
+      "company": "Sagara Technology",
+      "period": "Jul 2021 — Dec 2022",
+      "description": "Built backend systems for Bank BRI and OVO. Designed APIs and integrated regulatory compliance systems.",
+      "highlights": [
+        "Bank BRI — MVP API for UMKM business platform",
+        "OVO — Integrated Bank Indonesia's BISNAP regulation"
+      ]
+    },
+    {
+      "role": "Back End Developer",
+      "company": "Lumoshive",
+      "period": "May — Oct 2021",
+      "description": "Developed Go APIs with GIN framework. Built internal game platform project."
+    },
+    {
+      "role": "Back End Developer",
+      "company": "PT Fusi Solusi Transformasi",
+      "period": "Sep 2020 — Apr 2021",
+      "description": "Built Go APIs with Echo framework. Implemented ELK stack for observability and payment gateway integration."
+    },
+    {
+      "role": "Trainee",
+      "company": "Enigma Camp",
+      "period": "May — Aug 2020",
+      "description": "Intensive bootcamp: Go, MySQL, JavaScript, React."
+    }
+  ],
+  "skills": {
+    "Languages": ["Go", "JavaScript", "Python"],
+    "Backend": ["PostgreSQL", "MySQL", "REST APIs", "Microservices", "Unit Testing"],
+    "Cloud & Infra": ["AWS", "GCP", "Huawei Cloud", "KrakenD", "Kong", "RabbitMQ"],
+    "DevOps": ["Docker", "Kubernetes", "CI/CD", "Jenkins", "ELK Stack", "Linux"],
+    "Observability": ["New Relic", "Grafana", "Kibana"],
+    "Leadership": ["Technical Leadership", "Architecture Design", "Code Review", "Team Management"]
+  }
+}
